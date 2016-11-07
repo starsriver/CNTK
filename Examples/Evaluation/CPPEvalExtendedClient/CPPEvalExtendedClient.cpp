@@ -9,7 +9,6 @@
 #include <algorithm>
 #include <fstream>
 #include <unordered_map>
-#include <stdexcept>
 
 #include "Eval.h"
 #ifdef _WIN32
@@ -62,7 +61,7 @@ size_t word2idx(std::string word, std::unordered_map<std::string, size_t>& word2
     std::unordered_map<std::string, size_t>::iterator iter = word2idxVocab.find(word);
     if (iter == word2idxVocab.end())
     {
-        throw std::exception("word not found in source vocab");
+        throw std::runtime_error("word not found in source vocab");
     }
 
     return iter->second;
@@ -74,7 +73,7 @@ std::string idx2word(size_t idx, std::unordered_map<size_t, std::string>& idx2wo
     std::unordered_map<size_t, std::string>::iterator iter = idx2wordVocab.find(idx);
     if (iter == idx2wordVocab.end())
     {
-        throw std::exception("word index (idx) is not found in target vocab");
+        throw std::runtime_error("word index is not found in target vocab");
     }
 
     return iter->second;

@@ -136,6 +136,12 @@ void File::Init(const wchar_t* filename, int fileOptions)
         m_file = _wpopen(command.c_str(), options.c_str());
         if (!m_file)
             RuntimeError("File: error exexuting pipe command '%S': %s", command.c_str(), strerror(errno));
+        // Buffering writes (10MB)
+        if (writing)
+        {
+            // It may fail and no buffer is assigned to the file.
+	    setvbuf(m_file, NULL, _IOFBF, 10 * 1024 * 1024);
+        }
         m_pcloseNeeded = true;
     }
     else

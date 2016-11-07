@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <fstream>
 #include <unordered_map>
+#include <stdexcept>
 
 #include "Eval.h"
 #ifdef _WIN32

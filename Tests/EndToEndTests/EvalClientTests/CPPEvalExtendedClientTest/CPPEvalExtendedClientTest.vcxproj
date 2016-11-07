@@ -52,7 +52,7 @@
   <PropertyGroup>
     <!-- TODO intentional for all? -->
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>CPPEvalClientTest</TargetName>
+    <TargetName>CPPEvalExtendedClientTest</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

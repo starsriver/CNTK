@@ -62,13 +62,13 @@ namespace CNTK
 
         void EnableForwardValuesSharing()
         {
-			Microsoft::MSR::CNTK::Globals::EnableShareNodeValueMatrices();
+            Microsoft::MSR::CNTK::Globals::EnableShareNodeValueMatrices();
         }
 
-		void EnableHyperMemoryCompress()
-		{
-			Microsoft::MSR::CNTK::Globals::EnableHyperCompressMemory();
-		}
+        void EnableHyperMemoryCompress()
+        {
+            Microsoft::MSR::CNTK::Globals::EnableHyperCompressMemory();
+        }
 
         bool AreEquivalent(const Variable& var1, const Variable& var2, bool allowParameterAndConstantsEquivalence)
         {

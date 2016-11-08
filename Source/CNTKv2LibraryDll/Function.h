@@ -13,6 +13,7 @@
 #include "Utils.h"
 #include "ConvolveGeometry.h"
 #include "ConvolutionalNodes.h"
+#include "Globals.h"
 
 
 namespace std
@@ -194,7 +195,9 @@ namespace CNTK
     public:
         PrimitiveFunction(PrimitiveOpType op, std::vector<Variable>& inputs, Dictionary&& functionConfig, const std::wstring& functionName = L"")
             : PrimitiveFunction(op, inputs, std::move(functionConfig), functionName, GenerateUid(op))
-        {}
+        {
+			Microsoft::MSR::CNTK::Globals::EnableShareNodeValueMatrices();
+		}
 
         virtual BackPropStatePtr Forward(const std::unordered_map<Variable, ValuePtr>& /*arguments*/,
                                          std::unordered_map<Variable, ValuePtr>& /*outputs*/,
